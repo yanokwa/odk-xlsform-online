@@ -11,6 +11,6 @@ services:
     volumes:
       - /srv/django/tmp_home:/srv/django/tmp_home
       - /srv/django/persistent_home:/srv/django/persistent_home
-      - /home/ubuntu/xlsform/xlsform_src/static:/usr/src/app/static
+      - /srv/nginx/static:/usr/src/app/static
     restart: always
     init: true
