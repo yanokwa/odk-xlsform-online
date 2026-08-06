@@ -1,0 +1,16 @@
+services:
+  xlsform-online:
+    image: xlsform-online:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - /srv/django/tmp_home:/srv/django/tmp_home
+      - /srv/django/persistent_home:/srv/django/persistent_home
+      - /home/ubuntu/xlsform/xlsform_src/static:/usr/src/app/static
+    restart: always
+    init: true
