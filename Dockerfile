@@ -1,10 +1,10 @@
-FROM python:3.12.5-alpine AS build
+FROM python:3.13.14-alpine AS build
 RUN apk --update --no-cache add git
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
  
-FROM python:3.12.5-alpine AS runtime
+FROM python:3.13.14-alpine AS runtime
 WORKDIR /usr/src/app
 RUN apk --update --no-cache add openjdk8-jre-base
 COPY --from=build /usr/local/bin /usr/local/bin
