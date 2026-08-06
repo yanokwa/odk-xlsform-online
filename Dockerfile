@@ -7,8 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 FROM python:3.13.14-alpine AS runtime
 WORKDIR /usr/src/app
 RUN apk --update --no-cache add openjdk8-jre-base
-COPY --from=build /usr/local/bin /usr/local/bin
-COPY --from=build /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=build /usr/local /usr/local
 COPY . .
 EXPOSE 8000
 VOLUME ["/tmp_home", "/persistent_home"]
